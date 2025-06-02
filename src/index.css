@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .quiz-card {
+    @apply bg-white dark:bg-surface-800 rounded-2xl shadow-card border border-surface-200 dark:border-surface-700 transition-all duration-300 hover:shadow-soft hover:scale-[1.02];
+  }
+  
+  .quiz-button {
+    @apply px-6 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50;
+  }
+  
+  .quiz-button-primary {
+    @apply bg-gradient-to-r from-primary to-primary-dark text-white shadow-lg hover:shadow-glow;
+  }
+  
+  .quiz-button-secondary {
+    @apply bg-gradient-to-r from-secondary to-secondary-dark text-surface-900 shadow-lg hover:shadow-xl;
+  }
+  
+  .quiz-option {
+    @apply w-full p-4 text-left rounded-xl border-2 border-surface-200 dark:border-surface-600 bg-white dark:bg-surface-700 hover:border-primary hover:bg-primary-50 dark:hover:bg-primary-900 transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50;
+  }
+  
+  .quiz-option-selected {
+    @apply border-primary bg-primary-50 dark:bg-primary-900;
+  }
+  
+  .quiz-option-correct {
+    @apply border-green-500 bg-green-50 dark:bg-green-900 text-green-700 dark:text-green-300;
+  }
+  
+  .quiz-option-incorrect {
+    @apply border-red-500 bg-red-50 dark:bg-red-900 text-red-700 dark:text-red-300;
+  }
+  
+  .timer-ring {
+    @apply w-16 h-16 rounded-full border-4 border-surface-200 dark:border-surface-600;
+  }
+  
+  .progress-bar {
+    @apply h-2 bg-surface-200 dark:bg-surface-700 rounded-full overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-primary to-secondary transition-all duration-500 ease-out;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-surface-100 dark:bg-surface-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-dark;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
